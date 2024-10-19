@@ -1,7 +1,10 @@
 import { Link, Route, Routes, useNavigate } from 'react-router-dom'
-import './App.css'
-import CommentsList from './pages/comments'
-import ReceiptList from './pages/recipes'
+import './App.css';
+import CommentsList from './pages/comments';
+import RecipeList from './pages/recipes';
+import Layout from './components/layout';
+import RecipeDetails from './pages/recipe-details';
+import NotFoundPage from './pages/not-found';
 
 function App() {
   const navigate =  useNavigate()
@@ -24,8 +27,13 @@ function App() {
         Navigate to Comments List Page
         </button>
        <Routes>
-         <Route path='/recipe-list' element ={<ReceiptList/>} />
-         <Route path='/comments-list' element={<CommentsList/>} />
+        <Route path='/home' element={<Layout />}>
+        <Route path='recipe-list' element ={<RecipeList />} />
+         <Route path='comments-list' element={<CommentsList />} />
+         <Route path='recipe-list/:id' element={<RecipeDetails />} />
+         <Route path='*' element={<NotFoundPage />} />
+        </Route> 
+         
 
        </Routes>
     </div>

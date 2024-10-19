@@ -1,6 +1,11 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom';
 
-function ReceiptList() {
+function RecipeList() {
+
+  const location = useLocation();
+  console.log(location);
+
   return (
     <div>
       <h1>Recipe List Page</h1>
@@ -8,4 +13,4 @@ function ReceiptList() {
   )
 }
 
-export default ReceiptList;
+export default RecipeList;
