@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
  
-function RecipeDetails() {
+function RecipeDetailsPage() {
 
     const params = useParams();
     console.log(params);
@@ -13,4 +13,4 @@ function RecipeDetails() {
 
 }
 
-export default RecipeDetails
+export default RecipeDetailsPage

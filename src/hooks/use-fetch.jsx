@@ -1,10 +1,9 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 
 
 function useFetch(url, options ={}){
     const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     async function fetchData(){
