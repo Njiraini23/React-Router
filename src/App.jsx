@@ -5,6 +5,7 @@ import RecipeDetailsPage from './pages/recipe-details';
 import { Link, useNavigate, useRoutes } from 'react-router-dom';
 import NotFoundPage from './pages/not-found';
 import Layout from './components/layout';
+import ReactFormExamplePage from './pages/react-hook-form-example';
 
 function CustomRoutes(){
   const element = useRoutes([
@@ -24,6 +25,10 @@ function CustomRoutes(){
     {
       path : "*", 
       element : <NotFoundPage/>
+    }, 
+    {
+      path : '/react-hook-form',
+      element : <ReactFormExamplePage />
     }
   ]);
   return element
@@ -34,7 +39,7 @@ function App() {
   const navigate = useNavigate();
   return (
     <div>
-      <h1>React Routing</h1> 
+      {/* <h1>React Routing</h1> 
       <div>
         <Link to={'/recipe-list'}>
         Altenative way of navigating to recipe list page
