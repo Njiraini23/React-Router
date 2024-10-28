@@ -1,13 +1,19 @@
+import { useMemo, useState } from "react";
 import useFetch from "../../hooks/use-fetch";
 
 
 function UseMemoExample(){
     const {data, loading} = useFetch('https://dummyjson.com/products');
+    const [flag, setFlag] =useState(false);
 
     function filterProductByPrice(getProducts){
 
         return getProducts?.length > 0 ? getProducts.filter(singleProductItem => singleProductItem.price > 10) : [];  
     }
+
+    const memorizedVersion = useMemo(
+        ()=>filterProductByPrice(data?.products), 
+    [data?.products])
 
     if(loading) return <h1>loading data! Please wait</h1>
 
@@ -16,10 +22,11 @@ function UseMemoExample(){
 
     return (
         <div>
-            <h1>Use Memo</h1>
+            <h1 style={{color : flag ? 'red' : 'blue'}} >Use Memo</h1>
+            <button onClick={()=>setFlag(!flag)} >Toggle Flag</button>
             <ul>
                 {
-                    filterProductByPrice(data?.products).map(item=> <li>{item.title} </li> )
+                    memorizedVersion.map(item=> <li>{item.title} </li> )
                 }
             </ul>
         </div>
