@@ -6,6 +6,8 @@ import { Link, useNavigate, useRoutes } from 'react-router-dom';
 import NotFoundPage from './pages/not-found';
 import Layout from './components/layout';
 import ReactFormExamplePage from './pages/react-hook-form-example';
+import Hooks from './pages/hooks';
+import UseMemoExample from './pages/use-memo-example';
 
 function CustomRoutes(){
   const element = useRoutes([
@@ -16,7 +18,9 @@ function CustomRoutes(){
           path : '/recipe-list', 
           element : <RecipeList />,
          },
-          { path : '/comments-list', element : <CommentsList />},
+          { path : '/comments-list',
+            element : <CommentsList />
+          },
          { path : '/recipe-list/:id', 
           element : <RecipeDetailsPage />
         },
@@ -29,7 +33,15 @@ function CustomRoutes(){
     {
       path : '/react-hook-form',
       element : <ReactFormExamplePage />
-    }
+    }, 
+    {
+      path : '/hooks',
+      element : <Hooks />
+    },
+    {
+      path : '/usememo',
+      element : <UseMemoExample />
+    },
   ]);
   return element
 }
